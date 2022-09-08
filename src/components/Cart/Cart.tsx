@@ -1,14 +1,15 @@
 import { useEffect, useState} from "react";
 import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
 import styles from "./Cart.module.css";
-
 import CartItem from "./CartItem/CartItem";
-const Cart= () => {
-    const cart = useSelector((state) => state.product.cart);
-    const [total,setTotal]=useState(0)
+
+const Cart:React.FC = () => {
+    const cart = useSelector((state:RootState) => state.product.cart);
+    const [total,setTotal]=useState<any>(0)
     const amountCalculator = () =>{
       let sum = 0;
-      cart.map((c)=>{
+      cart.map((c:any)=>{
         sum=sum + c.product?.price * c.quantity
       })
       setTotal(sum)
@@ -21,7 +22,7 @@ const Cart= () => {
         <div className={styles.cart}>
         <div className={styles.cart__items}>
         {
-          cart.map((c,i)=>  <CartItem key={i} cartItem={c} i={i} />)
+          cart.map((c:any,i:any)=>  <CartItem key={i} cartItem={c} i={i} />)
         }
         </div>
         <div className={styles.cart__summary}>

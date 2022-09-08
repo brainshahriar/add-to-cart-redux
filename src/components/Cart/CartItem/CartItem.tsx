@@ -2,13 +2,29 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { setCart } from "../../../redux/productSlice";
+import { RootState } from "../../../redux/store";
 import styles from "./CartItem.module.css";
 
-const CartItem = ({cartItem,i}) => {
-  const cart = useSelector((state) => state.product.cart);
+type data={
+  product: any;
+  quantity: string | number | readonly string[] | undefined;
+  _id:string,
+  title:string,
+  description:string,
+  price:string,
+  image:string
+}
+
+interface Data{
+  cartItem:data
+  i:number
+}
+
+const CartItem:React.FC<Data>= ({cartItem,i}) => {
+  const cart = useSelector((state:RootState) => state.product.cart);
   const dispatch = useDispatch();
-  const ChangeQuantity =(e)=>{
-    let newCart = [...cart]
+  const ChangeQuantity =(e:any)=>{
+    let newCart:Array<any> = [...cart]
          let newObj={
            product:cartItem.product,
            quantity:e.target.value
@@ -17,7 +33,7 @@ const CartItem = ({cartItem,i}) => {
           dispatch(setCart(newCart))
   }
 
-    const handleDelete =(e)=>{
+    const handleDelete =(e:any)=>{
       let newCart = [...cart]
            const anotherCart=newCart.filter((c)=>c!==cartItem)
           dispatch(setCart(anotherCart))

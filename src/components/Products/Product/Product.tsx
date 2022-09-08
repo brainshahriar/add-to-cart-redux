@@ -21,7 +21,7 @@ const Product:React.FC<Data>= ({product}) => {
   const cart = useSelector((state:RootState) => state.product.cart);
   const dispatch = useDispatch();
   const handleCart = ()=>{
-    const newCart:Array<any>= [...cart]
+    const newCart:Array<any>=[...cart]
     if(newCart.find((c:any)=>c.product===product)){
          newCart.map((c:any,index:any)=>{
           if(c.product===product){
