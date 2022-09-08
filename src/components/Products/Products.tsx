@@ -8,7 +8,7 @@ const Products: React.FC = () => {
     <div>
       <div className="products">
         {
-          data.map((d,i)=><Product key={i} product={d} />)
+          data.map((d:any,i:any)=><Product key={i} product={d} />)
         }
       </div>
     </div>

@@ -26,6 +26,7 @@ const CartItem = ({cartItem,i}) => {
   return (
     <div className={styles.cartItem}>
       <img
+      alt=""
         className={styles.cartItem__image}
         src={cartItem.product.image}
         // alt={item.title}

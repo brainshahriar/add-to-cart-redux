@@ -1,18 +1,29 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import "./Product.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { setCart } from "../../../redux/productSlice";
+import type { RootState } from "../../../redux/store";
 
+type data={
+  _id:string,
+  title:string,
+  description:string,
+  price:string,
+  image:string
+}
 
-const Product = ({product}) => {
+interface Data{
+  product:data
+}
 
-  const cart = useSelector((state) => state.product.cart);
+const Product:React.FC<Data>= ({product}) => {
+
+  const cart = useSelector((state:RootState) => state.product.cart);
   const dispatch = useDispatch();
   const handleCart = ()=>{
-    const newCart = [...cart]
-    if(newCart.find((c)=>c.product===product)){
-         newCart.map((c,index)=>{
+    const newCart:Array<any>= [...cart]
+    if(newCart.find((c:any)=>c.product===product)){
+         newCart.map((c:any,index:any)=>{
           if(c.product===product){
             let newObj={
               product:product,
@@ -24,7 +35,7 @@ const Product = ({product}) => {
          })
     }
     else{
-      const obj={
+      const obj:any={
         product:product,
         quantity:1
       }

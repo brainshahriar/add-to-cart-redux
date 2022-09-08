@@ -1,17 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import styles from "./SingleItem.module.css";
+import styles from './SingleItem.module.css';
 import {data} from '../../constants/product-data'
 import { useParams } from "react-router-dom";
 import { setCart } from "../../redux/productSlice";
+import { RootState } from "../../redux/store";
 
-const SingleItem = () => {
+interface Data {
+  _id:string,
+  title:string,
+  description:string,
+  price:string,
+  image:string
+}
+
+const SingleItem:React.FC = () => {
   const {id} = useParams()
-  const [product,setProduct]=useState({})
+  const [product,setProduct]=useState<any>({})
   const getProduct = ()=>{
     if(data.length>0){
-       data.map((item)=>{
+       data.map((item:any)=>{
         if(item._id === id){
           setProduct(item)
         }
@@ -23,13 +32,13 @@ const SingleItem = () => {
   },[id]
   )
 
-  const cart = useSelector((state) => state.product.cart);
+  const cart = useSelector((state:RootState) => state.product.cart);
   const dispatch = useDispatch();
 
   const addTocart = ()=>{
-    const newCart = [...cart]
-    if(newCart.find((c)=>c.product===product)){
-         newCart.map((c,index)=>{
+    const newCart:Array<any>= [...cart]
+    if(newCart.find((c:any)=>c.product===product)){
+         newCart.map((c:any,index:any)=>{
           if(c.product===product){
             let newObj={
               product:product,
