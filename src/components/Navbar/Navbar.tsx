@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { RootState } from "../../redux/store";
 import "./Navbar.scss";
 
-const Navbar= () => {
+const Navbar:React.FC = () => {
   const cart = useSelector((state:RootState) => state.product.cart);
   const handleCart = () =>{
     cart.length<1 && alert("Cart is empty")
