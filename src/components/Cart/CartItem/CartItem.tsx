@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { setCart } from "../../../redux/productSlice";
 import { RootState } from "../../../redux/store";
-import styles from "./CartItem.module.css";
+import './CartItem.scss'
 
 type data={
   product: any;
@@ -40,24 +40,24 @@ const CartItem:React.FC<Data>= ({cartItem,i}) => {
     }
 
   return (
-    <div className={styles.cartItem}>
+    <div className="cartItem">
       <img
       alt=""
-        className={styles.cartItem__image}
+        className="cartItem__image"
         src={cartItem.product.image}
         // alt={item.title}
       />
-      <div className={styles.cartItem__details}>
-        <p className={styles.details__title}>{cartItem.product.title}</p>
-        <p className={styles.details__desc}>{cartItem.product.description}</p>
-        <p className={styles.details__price}>$ {cartItem.product.price}</p>
+      <div className="cartItem__details">
+        <p className="cartItem__details__title">{cartItem.product.title}</p>
+        <p className="cartItem__details__desc">{cartItem.product.description}</p>
+        <p className="cartItem__details__price">$ {cartItem.product.price}</p>
       </div>
-      <div className={styles.cartItem__actions}>
-        <div className={styles.cartItem__qty}>
+      <div className="cartItem__actions">
+        <div className="cartItem__actions__qty">
           <label htmlFor="qty">Qty</label>
           <input min="1" type="number" onChange={ChangeQuantity} value={cartItem.quantity} />
         </div>
-        <button onClick={handleDelete} className={styles.actions__deleteItemBtn}>
+        <button onClick={handleDelete} className="cartItem__actions__deleteItemBtn">
           <img
             src="https://png.pngtree.com/png-vector/20190225/ourlarge/pngtree-delete-vector-icon-png-image_702549.jpg"
             alt=""

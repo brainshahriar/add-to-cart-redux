@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import styles from './SingleItem.module.css';
+import './SingleItem.scss'
 import {data} from '../../constants/product-data'
 import { useParams } from "react-router-dom";
 import { setCart } from "../../redux/productSlice";
@@ -59,14 +59,14 @@ const SingleItem:React.FC = () => {
     dispatch(setCart(newCart))
   }
   return (
-    <div className={styles.singleItem}>
-      <img className={styles.singleItem__image} src={product?.image} alt="" />
-      <div className={styles.singleItem__details}>
-        <p className={styles.details__title}>{product?.title}</p>
-        <p className={styles.details__description}>{product?.description}</p>
-        <p className={styles.details__price}>$ {product?.price}</p>
+    <div className="singleItem">
+      <img className='singleItem__image' src={product?.image} alt="" />
+      <div className='singleItem__details'>
+        <p className="singleItem__details__title">{product?.title}</p>
+        <p className="singleItem__details__description">{product?.description}</p>
+        <p className="singleItem__details__price">$ {product?.price}</p>
 
-        <button className={styles.details__addBtn} onClick={addTocart} >Add To Cart</button>
+        <button className="singleItem__details__addBtn" onClick={addTocart} >Add To Cart</button>
       </div>
     </div>
   );

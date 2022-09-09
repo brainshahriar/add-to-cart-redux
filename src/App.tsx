@@ -8,6 +8,7 @@ import {
   useNavigate,
 } from "react-router-dom";
 import './app.scss'
+import '../src/assets/styles/index.scss'
 import Products from './components/Products/Products';
 import Navbar from './components/Navbar/Navbar';
 import Cart from './components/Cart/Cart';

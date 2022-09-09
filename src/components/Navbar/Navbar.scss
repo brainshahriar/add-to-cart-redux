@@ -1,9 +1,10 @@
+@import '../../assets/styles/index.scss';
 .navbar {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background:gray;
+    background:$navbar-background;
     position: sticky;
     top: 0;
     left: 0;
@@ -11,11 +12,11 @@
     &__logo {
         font-size: 40px;
         font-weight: bold;
-        color: #fff;
+        color: $navbar-logo;
         margin-left: 20px;
       }
       &__cart {
-        background: #fff;
+        background:$navbar-logo;
         width: 180px;
         border: none;
         border-radius: 15px;
@@ -31,7 +32,7 @@
         &__title {
             font-size: 30px;
             font-weight: bold;
-            color: var(--dark-color);
+            color: $dark-color;
           }
           &__image {
             width: 30px;
@@ -41,10 +42,10 @@
           &__counter {
             height: 40px;
             width: 40px;
-            border: 1px solid var(--secondary-color);
+            border: 1px solid $secondary-color;
             border-radius: 50%;
-            color: var(--dark-color);
-            background: var(--light-color);
+            color: $dark-color;
+            background: $light-color;
             font-size: 25px;
             display: flex;
             justify-content: center;

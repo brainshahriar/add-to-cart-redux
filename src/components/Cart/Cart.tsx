@@ -1,7 +1,7 @@
 import { useEffect, useState} from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import styles from "./Cart.module.css";
+import './Cart.scss'
 import CartItem from "./CartItem/CartItem";
 
 const Cart:React.FC = () => {
@@ -19,19 +19,19 @@ const Cart:React.FC = () => {
     }, [cart])
     
     return (
-        <div className={styles.cart}>
-        <div className={styles.cart__items}>
+        <div className="cart">
+        <div className="cart__items">
         {
           cart.map((c:any,i:any)=>  <CartItem key={i} cartItem={c} i={i} />)
         }
         </div>
-        <div className={styles.cart__summary}>
-          <h4 className={styles.summary__title}>Cart Summary</h4>
-          <div className={styles.summary__price}>
+        <div className="cart__summary">
+          <h4 className="cart__summary__title">Cart Summary</h4>
+          <div className="cart__summary__price">
             <span>TOTAL: ({cart?.length} items)</span>
             <span>$ {total}</span>
           </div>
-          <button className={styles.summary__checkoutBtn}>
+          <button className="cart__summary__checkoutBtn">
             Proceed To Checkout
           </button>
         </div>

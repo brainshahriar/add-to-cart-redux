@@ -1,0 +1,66 @@
+@import '../../../assets/styles/index.scss';
+.cartItem {
+    margin-bottom: 1rem;
+    display: flex;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    border-radius: 10px;
+    &__image {
+      width: 350px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+    &__details {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color:$secondary-color;
+      &__title {
+        font-size: 1rem;
+        font-weight: bold;
+      }
+      &__desc {
+        font-size: 0.8rem;
+      }
+      &__price {
+        font-size: 1rem;
+        font-weight: bold;
+      }
+    }
+    &__actions {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0.6rem;
+      &__deleteItemBtn {
+        width: 50px;
+        height: 50px;
+        border: 1px solid $secondary-color;
+        border-radius: 50%;
+        cursor: pointer;
+        /* transition: all ease-in-out 0.7s; */
+        outline: none;
+        &:hover {
+          transform: scale(1.2) rotate(360deg);
+          background-color:blue;
+        }
+        img {
+          width: 25px;
+          height: 25px;
+        }
+      }
+    }
+    &__qty {
+      display: flex;
+      align-items: center;
+      input {
+        padding: 10px;
+        margin-left: 0.4rem;
+        width: 60px;
+        border-radius: 10px;
+        border: 1px solid $secondary-color;
+        outline: none;
+      }
+    }
+  }

@@ -49,9 +49,9 @@ const Product:React.FC<Data>= ({product}) => {
       <img className='product__image' src={product.image} alt="" />
 
       <div className='product__details'>
-        <p className="details__title">{product.title}</p>
-        <p className='details__desc'>{product.description}</p>
-        <p className='details__price'>$ {product.price}</p>
+        <p className="product__details__title">{product.title}</p>
+        <p className='product__details__desc'>{product.description}</p>
+        <p className='product__details__price'>$ {product.price}</p>
       </div>
 
       <div className="product__buttons">
